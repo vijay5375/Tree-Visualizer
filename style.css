@@ -1,80 +1,141 @@
-html{
-    margin:0;
-    padding: 0;
-}
-
-body{
-    background-color: rgb(255, 255, 255);
+body {
+    background-color: #ffffff;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-input{
-    font-size: 1.1em;
-}
-
-label{
-    font-size: 1.1em;
-}
-
-#title{
-    background-color: rgb(61,61,61);
-    font-size: 1.1em;
+#title {
+    background-color: #3d3d3d;
     color: white;
-    border: none;
-    border-radius: 3px;
-    font-weight: normal;
+    padding: 15px;
+    margin: 0;
     font-size: 1.75em;
-}
-
-#blurb{
-    background-color: rgba(255,255,255,0.386);
-    text-align: center;
-    margin: 1em auto 1em auto;
-    width: 500px;
-    padding: .5em;
-    border-radius: 5px;
-}
-#visual-title{
-    font-weight: bold;
-    font-size: 1.2em;
-    padding-bottom: .5em;
-}
-#array-visual{
-    margin: 1em;
-}
-
-header{
-    background-color: rgb(255, 255, 255);
-    background-size: cover;
-    width: 100%;
-    padding: 1em;
-    color: black;
-}
-
-button{
-    margin-top: 1em;
-    background-color: rgb(8,74,3);
-    font-size: 1.1em;
-    color: white;
-    padding: .25em .5em .25em .5em;
-    border: none;
-    border-radius: 3px;
     font-weight: normal;
 }
 
+/* Selection Screen */
+.visualization-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin: 30px auto;
+}
+
+.viz-option {
+    padding: 15px 25px;
+    font-size: 1.2em;
+}
+
+/* Input Screen */
+.input-container {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.instructions {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    text-align: left;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+#input-method-selector {
+    margin: 15px 0;
+}
+
+#input-method-selector button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+#input-method-selector button.active {
+    background-color: #084a03;
+    color: white;
+    border: 1px solid #084a03;
+}
+
+input {
+    font-size: 1.1em;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Error Message */
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+/* Common Button Styles */
+button {
+    background-color: #084a03;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.1em;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0a5e00;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#back-btn, #new-input-btn {
+    background-color: #666;
+}
+
+#back-btn:hover, #new-input-btn:hover {
+    background-color: #777;
+}
+
+/* Visualization Screen */
+#visualization-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+#binary-tree {
+    margin: 20px 0;
+}
+
+#array-visual {
+    margin: 20px 0;
+}
+
+/* Tree and Array Styles */
 rect:hover, circle:hover, text.circle:hover, text.rect:hover {
     cursor: pointer;
 }
 
-.subtext {
-    font-size: .8em;
-    font-weight: 400;
-}
-
-.svg-container{
+.svg-container {
     display: inline-block;
     position: relative;
     width: 100%;
@@ -83,9 +144,45 @@ rect:hover, circle:hover, text.circle:hover, text.rect:hover {
     overflow: hidden;
 }
 
-.svg-content-responsive{
+.svg-content-responsive {
     display: inline-block;
     position: absolute;
     top: 10px;
     left: 0;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #084a03;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.active {
+    display: block;
+}
+
+/* Screen Transitions */
+.fade {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
